@@ -1,0 +1,40 @@
+<ul class="nav navbar-nav navbar-right">
+
+  <li><%= link_to "トップページ", root_path %></li>
+  <li><%= link_to "ニュース", root_path %></li>
+
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+      エステ<span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><%= link_to "メニュー", root_path %></li>
+      <li><%= link_to "予約", root_path %></li>
+    </ul>
+  </li>
+
+  <li><%= link_to "アクセス", root_path %></li>
+  <li><%= link_to "オンラインショップ", root_path %></li>
+
+  <% if user_signed_in? %>
+    <li><%= link_to "ユーザーログアウト", destroy_user_session_path, method: :delete %></li>
+  <% else %>
+    <li><%= link_to "ユーザー登録", new_user_registration_path %></li>
+    <li><%= link_to "ユーザーログイン", new_user_session_path %></li>
+  <% end %>
+
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+      開発用メニュー<span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><%= link_to "ユーザーログイン", new_user_session_path %></li>
+      <li><%= link_to "スタッフログイン", new_staff_session_path %></li>
+      <li><%= link_to "DB設計", "https://cacoo.com/diagrams/w9PSawJFBQwWNGvo", :target=>["_blank"] %></li>
+      <li><%= link_to "GitHub", "https://github.com/nekosuke0728/estheapp", :target=>["_blank"] %></li>
+      <li><%= link_to "機能の紹介", root_path %></li>
+      <li><%= link_to "レビュー・バグ報告", root_path %></li>
+    </ul>
+  </li>
+
+</ul>

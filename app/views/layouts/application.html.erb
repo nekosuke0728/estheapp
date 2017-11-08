@@ -1,16 +1,51 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- meta data -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title -->
     <title>Estheapp</title>
+    <!-- favicon -->
+    <!-- <link rel="icon" type="image/vnd.microsoft.icon" href="images/favicon.ico"> -->
+    <!-- csrf攻撃対策 -->
     <%= csrf_meta_tags %>
+    <!-- fonts -->
+    <!-- css -->
+    <!-- js -->
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+    <nav class="navbar navbar-default navbar-static-top navbar-fixed-top navbar-costom">
+      <div class="container">
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="navbar-brand" href="#">Ranunculus</a>
+
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <% if staff_signed_in? %>
+            <%= render "navbars/staff" %>
+          <% else %>
+            <%= render "navbars/user" %>
+          <% end %>
+        </div>
+
+      </div>
+    </nav>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
     <%= yield %>
+
   </body>
 </html>

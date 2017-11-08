@@ -1,0 +1,6 @@
+<p class="navbar-text">店舗管理画面</p>
+
+<ul class="nav navbar-nav navbar-right">
+  <p class="navbar-text">ようこそ <%= current_staff.name %> さん。</p>
+  <li><%= link_to "ログアウト", destroy_staff_session_path, method: :delete %></li>
+</ul>
