@@ -2,6 +2,8 @@ class Staffs::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+  before_action :redirect_if_not_staff, only: [:new, :create, :cancel]
+
   # GET /resource/sign_up
   # def new
   #   super
@@ -36,7 +38,14 @@ class Staffs::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def redirect_if_not_staff
+    unless staff_signed_in?
+      redirect_to root_path
+      return
+    end
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
