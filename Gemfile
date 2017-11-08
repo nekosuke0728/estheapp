@@ -39,6 +39,15 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  # 追加 -----------------------------------------------------------------------------
+  gem 'hirb'                    # モデルの出力結果を表形式で表示するGem
+  gem 'hirb-unicode'            # 日本語などマルチバイト文字の出力時の出力結果のずれに対応  
+  gem 'pry-rails'               # rails console(もしくは、rails c)でirbの代わりにpryを使われる
+  gem 'pry-doc'                 # methodを表示
+  gem 'pry-byebug'              # デバッグを実施(Ruby 2.0以降で動作する)
+  gem 'pry-stack_explorer'      # スタックをたどれる
+  gem 'rspec-rails', '~> 3.5'   # テスト
+  gem 'factory_bot_rails'       # テスト
 end
 
 group :development do
@@ -48,7 +57,48 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # 追加 -----------------------------------------------------------------------------
+  gem 'better_errors'                       # エラー画面をわかりやすく整形してくれる
+  gem 'binding_of_caller'                   # better-errorsのエラー画面でirbを利用する
+  gem 'guard-livereload', require: false    # view自動更新
+  gem 'bullet' 
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# ===================================================================================
+
+# 会員登録・OAuth認証
+gem 'devise', github: 'plataformatec/devise'
+gem 'omniauth'
+gem 'omniauth-line'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
+
+# 初期データ投入
+gem 'seed-fu'
+
+# 画像アップロード
+gem 'carrierwave'
+gem 'fog'
+gem 'rmagick', require: 'RMagick'
+
+# bootstrap
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+
+# ページネーション
+gem 'kaminari', '~> 1.0', '>= 1.0.1'
+
+# jquery
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'jquery-turbolinks'
+
+# 検索
+gem 'ransack'
+
+# AWS
+gem 'aws-sdk'
+
