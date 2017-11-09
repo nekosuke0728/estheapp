@@ -1,4 +1,6 @@
-<%= form_with(model: user_info, local: true) do |form| %>
+<%#= form_with(model: user_info, local: true) do |form| %>
+<%= form_with(model: user_info, local: true, class: 'h-adr') do |form| %>
+
   <% if user_info.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user_info.errors.count, "error") %> prohibited this user_info from being saved:</h2>
@@ -48,19 +50,21 @@
     <%= form.date_select :birthday, id: :user_info_birthday %>
   </div>
 
+  <span class="p-country-name" style="display:none;">Japan</span>
+
   <div class="field">
     <%= form.label :zipcode %>
-    <%= form.text_field :zipcode, id: :user_info_zipcode %>
+    <%= form.text_field :zipcode, id: :user_info_zipcode, class: 'p-postal-code' %>
   </div>
 
   <div class="field">
     <%= form.label :prefecture_name, '都道府県' %>
-    <%= form.collection_select :prefecture_name, JpPrefecture::Prefecture.all, :name, :name, include_blank: true %>
+    <%= form.collection_select(:prefecture_name, JpPrefecture::Prefecture.all, :name, :name, {prompt: ""}, {class: "p-region"}) %>
   </div>
 
   <div class="field">
     <%= form.label :address %>
-    <%= form.text_field :address, id: :user_info_address %>
+    <%= form.text_field :address, id: :user_info_address, class: 'p-locality p-street-address p-extended-address' %>
   </div>
 
   <div class="actions">

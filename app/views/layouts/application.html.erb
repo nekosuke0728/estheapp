@@ -4,22 +4,30 @@
     <!-- meta data -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- title -->
     <title>Estheapp</title>
+
     <!-- favicon -->
     <!-- <link rel="icon" type="image/vnd.microsoft.icon" href="images/favicon.ico"> -->
+
     <!-- csrf攻撃対策 -->
     <%= csrf_meta_tags %>
+
     <!-- fonts -->
+
     <!-- css -->
+
     <!-- js -->
+
+    <!-- 郵便番号から住所自動入力 -->
+    <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
     <nav class="navbar navbar-default navbar-static-top navbar-fixed-top navbar-costom">
       <div class="container">
 
@@ -48,6 +56,5 @@
     <div class="container">
       <%= yield %>
     </div>
-
   </body>
 </html>
