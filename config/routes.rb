@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     registrations: 'staffs/registrations'
   }
 
-  resources :user_infos, except:[:destroy]
+  resources :user_infos, except:[:index, :destroy]
+
+  get 'accounts/users'
+  get 'accounts/user_show'
+  get 'accounts/staffs'
   
 end

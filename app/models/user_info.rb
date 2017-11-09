@@ -2,6 +2,8 @@ class UserInfo < ApplicationRecord
   include JpPrefecture
   jp_prefecture :prefecture_id
 
+  belongs_to :user
+
   def prefecture_name
     JpPrefecture::Prefecture.find(code: prefecture_id).try(:name)
   end

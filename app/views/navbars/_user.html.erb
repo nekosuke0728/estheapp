@@ -22,7 +22,7 @@
         アカウント<span class="caret"></span>
       </a>
       <ul class="dropdown-menu">
-        <li><%= link_to "アカウント詳細情報", root_path %></li>
+        <li><%= link_to "アカウント詳細情報", user_info_path(current_user.id) %></li>
         <li><%= link_to "購入履歴", root_path %></li>
         <li><%= link_to "予約確認", root_path %></li>
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>

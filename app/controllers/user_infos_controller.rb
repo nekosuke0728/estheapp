@@ -1,13 +1,12 @@
 class UserInfosController < ApplicationController
-  before_action :set_user_info, only: [:show, :edit, :update]
-  before_action :authenticate_staff!, only: [:index]
-  before_action :authenticate_all, only: [:show, :new, :edit, :create, :update]
-
-  def index
-    @user_infos = UserInfo.all
-  end
+  before_action :set_user, only: [:new, :show, :edit, :update]
+  before_action :set_user_info, only: [:edit, :update]
+  before_action :authenticate_user!, only: [:show, :new, :edit, :create, :update]
 
   def show
+    unless current_user.user_info.nil?
+      @user_info = UserInfo.find(params[:id])
+    end
   end
 
   def new
@@ -26,7 +25,6 @@ class UserInfosController < ApplicationController
   end
 
   def update
-    @user_info = current_user.user_info
     if @user_info.update(user_info_params)
       redirect_to root_path
     else
@@ -35,12 +33,12 @@ class UserInfosController < ApplicationController
 
   private
 
-    def set_user_info
-      @user_info = UserInfo.find(params[:id])
+    def set_user
+      @user = current_user
     end
 
-    def authenticate_all
-      user_signed_in? || staff_signed_in?
+    def set_user_info
+      @user_info = UserInfo.find(params[:id])
     end
 
     def user_info_params

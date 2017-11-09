@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   attr_accessor :login
 
+  has_one :user_info, dependent: :destroy
+
   VALID_MEMBERSHIP_NUMBER_REGEX =  /\A\d{8}\z/
   validates :membership_number, format: { with: VALID_MEMBERSHIP_NUMBER_REGEX }
 

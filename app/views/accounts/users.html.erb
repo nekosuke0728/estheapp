@@ -1,0 +1,17 @@
+<h1>ユーザーアカウント一覧</h1>
+
+<table width="100%">
+  <tr>
+    <th>ユーザーID</th>
+    <th>会員番号</th>
+    <th>メールアドレス</th>
+  </tr>
+
+<% @users.each do |u| %>
+    <tr>
+      <td width="5%"><%= u.id %></td>
+      <td width="10%"><%= u.membership_number %></td>
+      <td width="10%"><%= u.email %></td>
+    </tr>
+  <% end %>
+</table>
