@@ -13,5 +13,7 @@ Rails.application.routes.draw do
     passwords: 'staffs/passwords',    
     registrations: 'staffs/registrations'
   }
+
+  resources :user_infos, except:[:destroy]
   
 end

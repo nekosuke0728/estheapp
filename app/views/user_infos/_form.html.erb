@@ -1,0 +1,69 @@
+<%= form_with(model: user_info, local: true) do |form| %>
+  <% if user_info.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_info.errors.count, "error") %> prohibited this user_info from being saved:</h2>
+
+      <ul>
+      <% user_info.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if staff_signed_in? %>
+    <div class="field">
+      <%= form.label :user_id %>
+      <%= form.number_field :user_id, id: :user_info_user_id %>
+    </div>    
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, id: :user_info_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, id: :user_info_last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :first_name_kana %>
+    <%= form.text_field :first_name_kana, id: :user_info_first_name_kana %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name_kana %>
+    <%= form.text_field :last_name_kana, id: :user_info_last_name_kana %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, id: :user_info_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birthday %>
+    <%= form.date_select :birthday, id: :user_info_birthday %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zipcode %>
+    <%= form.text_field :zipcode, id: :user_info_zipcode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prefecture_name, '都道府県' %>
+    <%= form.collection_select :prefecture_name, JpPrefecture::Prefecture.all, :name, :name, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :user_info_address %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

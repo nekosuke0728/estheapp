@@ -99,6 +99,8 @@ gem 'jquery-turbolinks'
 # 検索
 gem 'ransack'
 
-# AWS
+# AWS S3
 gem 'aws-sdk'
 
+# 都道府県データ
+gem 'jp_prefecture', '~> 0.9.0'

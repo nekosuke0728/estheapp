@@ -13,9 +13,6 @@ class Staffs::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
   def create
     build_resource(sign_up_params)
 
