@@ -1,0 +1,27 @@
+<p>
+  <strong>User:</strong>
+  <%= @reservation.user_id %>
+</p>
+
+<p>
+  <strong>Staff:</strong>
+  <%= @reservation.staff_id %>
+</p>
+
+<p>
+  <strong>Esthe menu:</strong>
+  <%= @reservation.esthe_menu_id %>
+</p>
+
+<p>
+  <strong>Start at:</strong>
+  <%= @reservation.start_at %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @reservation.comment %>
+</p>
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>

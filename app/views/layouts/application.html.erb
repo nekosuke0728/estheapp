@@ -19,7 +19,6 @@
     <!-- css -->
 
     <!-- js -->
-
     <!-- 郵便番号から住所自動入力 -->
     <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
 
@@ -37,7 +36,7 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" href="#">Ranunculus</a>
+        <a class="navbar-brand" href="/">Ranunculus</a>
 
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <% if staff_signed_in? %>
@@ -50,11 +49,32 @@
       </div>
     </nav>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
-    <div class="container">
-      <%= yield %>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="clearfix"></div>
+        <div class="col-sm-3 col-md-2 sidebar">
+          <% if staff_signed_in? %>
+            <%= render "sidebars/staff" %>
+          <%# elsif controller.controller_name == "online_shop" %>
+            <%#= render "sidebars/shop" %>
+          <% else %>
+            <%= render "sidebars/user" %>
+          <% end %>
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+
+          <%= yield %>
+
+        </div>
+      </div>
     </div>
+
+
+
   </body>
 </html>

@@ -16,6 +16,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
 
 
 // ---------------------------------------------- all
@@ -53,5 +54,24 @@ body {
         background-color: transparent;
       }
     }
+  }
+}
+
+// ---------------------------------------------- sidebar
+.sidebar {
+  padding-top: 70px;
+  display: none;
+  // background-color: black;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto
   }
 }

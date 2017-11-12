@@ -1,4 +1,3 @@
-<%#= form_with(model: user_info, local: true) do |form| %>
 <%= form_with(model: user_info, local: true, class: 'h-adr') do |form| %>
 
   <% if user_info.errors.any? %>
@@ -49,7 +48,16 @@
 
   <div class="field">
     <%= form.label :birthday %>
-    <%= form.date_select :birthday, id: :user_info_birthday %>
+    <%= raw sprintf(
+                form.date_select(
+                    :birthday,
+                    use_month_numbers: true,
+                    start_year:        1930,
+                    end_year:          (Time.now.year - 18),
+                    default:           Date.new(1989, 1, 1),
+                    date_separator:    '%s'),
+                '年 ', '月 ') + '日'
+     %>
   </div>
 
   <span class="p-country-name" style="display:none;">Japan</span>

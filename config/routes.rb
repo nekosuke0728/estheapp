@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :reservations
   root 'home#top'
 
   devise_for :users, controllers: {
@@ -19,5 +20,8 @@ Rails.application.routes.draw do
   get 'accounts/users'
   get 'accounts/user_show'
   get 'accounts/staffs'
+  get 'accounts/staff_show'
+
+  resources :esthe_menus
   
 end

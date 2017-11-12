@@ -1,28 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<% if @user_info.nil? %>
-
-  <p>アカウント詳細情報が未入力です。</p>
-
-  <%= button_to "詳細情報登録", new_user_info_path, method: :get, class: "btn" %>
-
-<% else %>
-  
-
-
 <p>
-  <strong>User ID:</strong>
+  <strong>仮表示　User ID:</strong>
   <%= @user.id %>
 </p>
 
 <p>
-  <strong>UserInfo ID:</strong>
-  <%= @user_info.id %>
-</p>
-
-<p>
   <strong>Membership_number:</strong>
-  <%= @user.membership_number %>
+  <% if  %>
+    会員番号は店舗利用時付与されます
+  <% else %>
+    <%= @user.membership_number %>
+  <% end %>
 </p>
 
 <p>
@@ -70,6 +59,4 @@
   <%= @user_info.address %>
 </p>
 
-<%= link_to 'Edit', edit_user_info_path(@user) %>
-
-<% end %>
+<%= link_to 'Edit', edit_user_info_path(@user_info) %>

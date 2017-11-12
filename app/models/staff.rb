@@ -4,6 +4,8 @@ class Staff < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, authentication_keys: [:login]
 
+  has_many :reservations
+
   attr_accessor :login
 
   def self.find_first_by_auth_conditions(warden_conditions)
