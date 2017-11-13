@@ -108,3 +108,6 @@ gem 'jp_prefecture', '~> 0.9.0'
 # 日時入力フォーム
 gem 'momentjs-rails', '~> 2.17', '>= 2.17.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17', '>= 4.17.47'
+
+# ツリー構造
+gem 'awesome_nested_set', '~> 3.1'
