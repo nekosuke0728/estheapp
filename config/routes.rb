@@ -35,5 +35,6 @@ Rails.application.routes.draw do
   resources :brands
   resources :carts
   resources :reservations
+  resources :item_types
   
 end
