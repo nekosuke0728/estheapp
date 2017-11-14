@@ -7,7 +7,6 @@ class User < ApplicationRecord
   attr_accessor :login
 
   has_one :user_info, dependent: :destroy
-  has_one :cart, dependent: :destroy
   has_one :reservation
 
   VALID_MEMBERSHIP_NUMBER_REGEX =  /\A\d{8}\z/
