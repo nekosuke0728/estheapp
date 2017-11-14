@@ -22,6 +22,7 @@
   </div>
 
   <div class='input-group date' id='datetimepicker'>
+      <%= f.label :start_at %>
       <%= f.text_field :start_at, :class => 'form-control', :placeholder => "開始日時" %>
       <span class="input-group-addon">
           <span class="glyphicon glyphicon-calendar"></span>
@@ -41,8 +42,15 @@
 <script type="text/javascript">
     $(function () {
         $('#datetimepicker').datetimepicker({
+          // timespan: 8.00-17.00,
+          // step: 15,
+          // inline: true,
+          // datepicker:false,
+          // allowTimes: ['12:00', '13:00', '15:00', '17:00', '17:05', '17:20', '19:00', '20:00'],
+
           locale: 'ja',
           sideBySide: true,
+          minDate:'2017/11/10',
           format: 'YYYY/MM/DD HH:mm',
           dayViewHeaderFormat: 'YYYY MMMM'
         });
