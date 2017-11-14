@@ -23,5 +23,17 @@ Rails.application.routes.draw do
   get 'accounts/staff_show'
 
   resources :esthe_menus
+  resources :news
+  resources :news_types
+  resources :stocks
+  resources :orderproducts
+  resources :orders
+  resources :payments
+  resources :cart_products
+  resources :products
+  resources :categories
+  resources :brands
+  resources :carts
+  resources :reservations
   
 end
