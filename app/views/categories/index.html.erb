@@ -10,16 +10,18 @@
     </tr>
   </thead>
 
-<tbody>
-  <% nested_set_options(@categories) { |i| "#{'–' * i.level} #{i.name}" }.each do |name, id| %>
-    <tr>
-      <td><%= name %></td>
-      <td><%= link_to 'Show', category_path(id) %></td>
-      <td><%= link_to 'Edit', edit_category_path(id) %></td>
-      <td><%= link_to 'Destroy', category_path(id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</tbody>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <br>
 
 <%= link_to 'New Category', new_category_path %>
