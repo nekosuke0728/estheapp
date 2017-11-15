@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :news
   resources :news_types
   resources :stocks
-  resources :orderproducts
+  resources :order_products
   resources :orders
   resources :payments
   resources :cart_products

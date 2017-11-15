@@ -8,7 +8,9 @@ class User < ApplicationRecord
 
   has_one :user_info, dependent: :destroy
   has_one :cart, dependent: :destroy
-  has_one :reservation
+  has_one :reservation, dependent: :destroy
+  has_one :order, dependent: :destroy
+
 
   VALID_MEMBERSHIP_NUMBER_REGEX =  /\A\d{8}\z/
   validates :membership_number, format: { with: VALID_MEMBERSHIP_NUMBER_REGEX }

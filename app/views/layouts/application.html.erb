@@ -24,9 +24,6 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <%#= stylesheet_link_tag    "application", media: "all" %>
-    <%#= javascript_include_tag "application" %>
   
   </head>
 
@@ -56,7 +53,8 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="clearfix"></div>
+        
+        <!-- <div class="clearfix"></div> -->
         <div class="col-sm-3 col-md-2 sidebar">
           <% if staff_signed_in? %>
             <%= render "sidebars/staff" %>
@@ -75,11 +73,9 @@
           <%= yield %>
 
         </div>
+
       </div>
     </div>
-
-    <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%#= javascript_include_tag "application" %>
 
   </body>
 </html>
