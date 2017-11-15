@@ -20,10 +20,14 @@
 
     <!-- js -->
     <!-- 郵便番号から住所自動入力 -->
-    <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
+    <!-- <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script> -->
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%#= stylesheet_link_tag    "application", media: "all" %>
+    <%#= javascript_include_tag "application" %>
+  
   </head>
 
   <body>
@@ -74,7 +78,8 @@
       </div>
     </div>
 
-
+    <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_include_tag "application" %>
 
   </body>
 </html>
