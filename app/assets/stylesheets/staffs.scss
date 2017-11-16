@@ -1,12 +1,13 @@
 table {
   // border: solid black 2px;
+  width: 100%;
 }
 
 table tr th {
   background-color: #909090;
   color: #f6f6f6;
   padding: 10px;
-  font-size: 12pt;
+  font-size: 11pt;
   font-weight: bold;
   text-align: center;
   // border-width: 2px 0px;
@@ -17,10 +18,36 @@ table tr th {
 table tr td {
   color: #606060;
   padding: 5px 10px;
-  font-size: 12pt;
+  font-size: 10pt;
   // text-align: center;
   border-width: 1px 0px;
   border-color: #c0c0c0;
   border-style: solid;
   // padding: 0.3em; 
 }
+
+.caution {
+  text-align: right;
+  margin-right: 10px;
+}
+
+.search-box {
+  input{
+    border-radius: 3px;
+    border: 1px solid #999;
+  }
+}
+
+// [data-toggle="collapse"] {
+//   &:after {
+//     display: inline-block;
+//     margin-left: .5em;
+//     font-family: fontAwesome;
+//   }
+//   &[aria-expanded="true"]:after {
+//     content: '\f0d8';
+//   }
+//   &[aria-expanded="false"]:after {
+//     content: '\f0d7';
+//   }
+// }

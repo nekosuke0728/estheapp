@@ -6,7 +6,10 @@
 
 <hr>
 
+<p class="caution">※ ユーザー詳細情報にて名前が未登録のお客様の場合、ユーザーIDの表示となります。</p>
+
 <table>
+
   <thead>
     <tr>
       <th>お客様名</th>
@@ -22,17 +25,17 @@
     <% @reservations.each do |reservation| %>
       <tr>
         <% if @user_info.nil? %>
-          <td>未登録</td>
+          <td><%= reservation.user_id %></td>
         <% else %>
           <td><%= reservation.user_info.first_name %><%= reservation.user_info.last_name %></td>          
         <% end %>
         <td><%= reservation.staff.name %></td>
         <td><%= reservation.esthe_menu.name %></td>
-        <td><%= simple_time(reservation.start_at) %>-</td>
+        <td><%= l reservation.start_at, format: :custom %>-</td>
         <td><%= reservation.comment %></td>
-        <td><%= link_to 'Show', reservation %></td>
-        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
-        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: '本当によろしいですか?' } %></td>
+        <td><%= link_to 'Show', reservation, class: "btn btn-info btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_reservation_path(reservation), class: "btn btn-info btn-sm" %></td>
+        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: '本当によろしいですか?' }, class: "btn btn-danger btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>

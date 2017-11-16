@@ -21,12 +21,12 @@
     <% @stocks.each do |stock| %>
       <tr>
         <td><%= stock.product.name %></td>
-        <td><%= stock.date %></td>
+        <td><%= l stock.date %></td>
         <td><%= stock.quantity %></td>
         <td><%= stock.in_status %></td>
-        <td><%= link_to 'Show', stock %></td>
-        <td><%= link_to 'Edit', edit_stock_path(stock) %></td>
-        <td><%= link_to 'Destroy', stock, method: :delete, data: { confirm: '本当によろしいですか?' } %></td>
+        <td><%= link_to 'Show', stock, class: "btn btn-info btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_stock_path(stock), class: "btn btn-info btn-sm" %></td>
+        <td><%= link_to 'Destroy', stock, method: :delete, data: { confirm: '本当によろしいですか?' }, class: "btn btn-danger btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -16,7 +16,7 @@
         <td><%= skin_trouble_type.name %></td>
         <td><%= link_to 'Show', skin_trouble_type %></td>
         <td><%= link_to 'Edit', edit_skin_trouble_type_path(skin_trouble_type) %></td>
-        <td><%= link_to 'Destroy', skin_trouble_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', skin_trouble_type, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -3,7 +3,14 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.all
+    # @products = Product.all
+    # 検索フォームの入力内容で検索する
+    @q = Product.search(params[:q])
+    @brands = Brand.all
+    @categories = Category.all
+    @item_types = ItemType.all
+    # 重複を排除
+    @products = @q.result.includes(:brand, :category)
   end
 
   def show
