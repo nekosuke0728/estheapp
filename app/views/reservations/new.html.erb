@@ -1,51 +1,5 @@
-<h1>新規予約</h1>
+<h1>新規予約（サロン入力）</h1>
 
-<%= form_with model: @reservation do |f| %>
+<%= render 'form', reservation: @reservation %>
 
-  <% if staff_signed_in? %>
-    <div class="field">
-      <%= f.label :user_id %>
-      <%= f.number_field :user_id, id: :reservation_user_id %>
-    </div>
-  <% else %>
-    <%= f.hidden_field :user_id, value: @user.id %> 
-  <% end %>
-
-  <div class="field">
-    <%= f.label :staff_id %>
-    <%= f.number_field :staff_id, id: :reservation_staff_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :esthe_menu_id %>
-    <%= f.number_field :esthe_menu_id, id: :reservation_esthe_menu_id %>
-  </div>
-
-  <div class='input-group date' id='datetimepicker'>
-      <%= f.text_field :start_at, :class => 'form-control', :placeholder => "開始日時" %>
-      <span class="input-group-addon">
-          <span class="glyphicon glyphicon-calendar"></span>
-      </span>
-  </div>
-
-  <div class="field">
-    <%= f.label :comment %>
-    <%= f.text_area :comment, id: :reservation_comment %>
-  </div>
-
-  <%= f.submit "この日程で予約する", class: "btn btn-danger btn-wide" %>    
-
-<% end %>
-
-
-<script type="text/javascript">
-    $(function () {
-        $('#datetimepicker').datetimepicker({
-          locale: 'ja',
-          sideBySide: true,
-          format: 'YYYY/MM/DD HH:mm',
-          dayViewHeaderFormat: 'YYYY MMMM'
-        });
-    });
-
-</script>
+<%= link_to 'Back', reservations_path %>

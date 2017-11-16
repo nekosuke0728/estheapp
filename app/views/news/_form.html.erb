@@ -1,4 +1,4 @@
-<%= form_with(model: news, local: true) do |form| %>
+<%= form_with(model: news, local: true) do |f| %>
   <% if news.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(news.errors.count, "error") %> prohibited this news from being saved:</h2>
@@ -12,21 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :news_type_id %>
-    <%= form.text_field :news_type_id, id: :news_news_type_id %>
+    <%= f.label :news_type_id %>
+    <%= f.collection_select :news_type_id, NewsType.all, :id, :name, include_blank: true %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_area :title, id: :news_title %>
   </div>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, id: :news_content %>
+    <%= f.label :content %>
+    <%= f.text_area :content, id: :news_content %>
   </div>
 
   <div class="field">
-    <%= form.label :state %>
-    <%= form.number_field :state, id: :news_state %>
+    <%= f.label :state %>
+    <%= f.number_field :state, id: :news_state %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

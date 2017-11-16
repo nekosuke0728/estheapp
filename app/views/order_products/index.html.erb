@@ -22,7 +22,7 @@
         <td><%= orderproduct.sub_total %></td>
         <td><%= link_to 'Show', orderproduct %></td>
         <td><%= link_to 'Edit', edit_orderproduct_path(orderproduct) %></td>
-        <td><%= link_to 'Destroy', orderproduct, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', orderproduct, method: :delete, data: { confirm: '本当によろしいですか?' } %></td>
       </tr>
     <% end %>
   </tbody>

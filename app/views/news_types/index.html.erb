@@ -1,6 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <h1>News Types</h1>
+
+<hr>
+
+<%= link_to 'New News Type', new_news_type_path %>
+
+<hr>
 
 <table>
   <thead>
@@ -16,12 +20,10 @@
         <td><%= news_type.name %></td>
         <td><%= link_to 'Show', news_type %></td>
         <td><%= link_to 'Edit', edit_news_type_path(news_type) %></td>
-        <td><%= link_to 'Destroy', news_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', news_type, method: :delete, data: { confirm: '本当によろしいですか?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New News Type', new_news_type_path %>

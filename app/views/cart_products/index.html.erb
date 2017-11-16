@@ -22,7 +22,7 @@
         <td><%= cart_product.status %></td>
         <td><%= link_to 'Show', cart_product %></td>
         <td><%= link_to 'Edit', edit_cart_product_path(cart_product) %></td>
-        <td><%= link_to 'Destroy', cart_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', cart_product, method: :delete, data: { confirm: '本当によろしいですか?' } %></td>
       </tr>
     <% end %>
   </tbody>

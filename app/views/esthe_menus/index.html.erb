@@ -1,6 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Esthe Menus</h1>
+
+<hr>
+
+<%= link_to 'New Esthe Menu', new_esthe_menu_path %>
+
+<hr>
 
 <table>
   <thead>
@@ -17,17 +21,15 @@
     <% @esthe_menus.each do |esthe_menu| %>
       <tr>
         <td><%= esthe_menu.name %></td>
-        <td><%= esthe_menu.time_frame %></td>
+        <td><%= esthe_menu.time_frame %>分</td>
         <td><%= esthe_menu.description %></td>
         <td><%= esthe_menu.price %></td>
         <td><%= link_to 'Show', esthe_menu %></td>
         <td><%= link_to 'Edit', edit_esthe_menu_path(esthe_menu) %></td>
-        <td><%= link_to 'Destroy', esthe_menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', esthe_menu, method: :delete, data: { confirm: '本当によろしいですか?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Esthe Menu', new_esthe_menu_path %>

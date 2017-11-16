@@ -1,6 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Payments</h1>
+
+<hr>
+
+<%= link_to 'New Payment', new_payment_path %>
+
+<hr>
 
 <table>
   <thead>
@@ -16,12 +20,10 @@
         <td><%= payment.name %></td>
         <td><%= link_to 'Show', payment %></td>
         <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
-        <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: '本当によろしいですか?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Payment', new_payment_path %>

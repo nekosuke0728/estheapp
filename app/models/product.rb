@@ -5,4 +5,6 @@ class Product < ApplicationRecord
   has_one :stock, dependent: :destroy
   has_many :cart_products
   has_many :order_products
+
+  validates :name, presence: true
 end

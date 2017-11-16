@@ -25,13 +25,24 @@ body {
   padding-top: 70px;
 }
 
-a:hover {
-  background-color: transparent;
-  text-decoration: none;
+// html {
+//   font-size: 10px;
+// }
+
+a {
+  color: #333333;
+  &:hover {
+    color: #333333;
+    // background-color: transparent;
+    text-decoration: none;
+  }
+  &:focus {
+    text-decoration: none;
+  }
 }
 
-a:focus {
-  text-decoration: none;
+.main {
+  padding: 3%;
 }
 
 // ---------------------------------------------- navbar
@@ -69,7 +80,7 @@ a:focus {
 
 // ---------------------------------------------- sidebar
 .sidebar {
-  padding-top: 70px;
+  margin-top: 70px;
   display: none;
 }
 
@@ -82,5 +93,12 @@ a:focus {
     display: block;
     overflow-x: hidden;
     overflow-y: auto
+  }
+}
+
+.panel-body {
+  padding: 5px 5px 5px 40px;
+  a {
+    font-size: 14px;
   }
 }

@@ -1,4 +1,4 @@
-<%= form_with(model: item_type, local: true) do |form| %>
+<%= form_with(model: item_type, local: true) do |f| %>
   <% if item_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(item_type.errors.count, "error") %> prohibited this item_type from being saved:</h2>
@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :category_id %>
-    <%= form.text_field :category_id, id: :item_type_category_id %>
+    <%= f.label :category_id %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
   </div>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :item_type_name %>
+    <%= f.label :name %>
+    <%= f.text_field :name, id: :item_type_name %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

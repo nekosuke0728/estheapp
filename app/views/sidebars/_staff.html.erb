@@ -1,7 +1,7 @@
 <div class="panel-group" id="accordion">
 
 
-  <div class="panel panel-default">
+  <div class="panel panel-danger">
 
     <div class="panel-heading">
       <h4 class="panel-title">
@@ -9,7 +9,7 @@
       </h4>
     </div>
 
-    <div id="collapseOne" class="panel-collapse collapse">
+    <div id="collapseOne" class="panel-collapse collapse in">
       <div class="panel-body">
         <%= link_to "予約一覧", reservations_path %>
       </div>
@@ -20,7 +20,7 @@
   </div>
 
 
-  <div class="panel panel-default">
+  <div class="panel panel-danger">
 
     <div class="panel-heading">
       <h4 class="panel-title">
@@ -28,7 +28,7 @@
       </h4>
     </div>
 
-    <div id="collapseTwo" class="panel-collapse collapse">
+    <div id="collapseTwo" class="panel-collapse collapse in">
       <div class="panel-body">
         <%= link_to "カテゴリ", categories_path %>
       </div>
@@ -45,7 +45,7 @@
   </div>
 
 
-  <div class="panel panel-default">
+  <div class="panel panel-danger">
 
     <div class="panel-heading">
       <h4 class="panel-title">
@@ -53,7 +53,7 @@
       </h4>
     </div>
 
-    <div id="collapseThree" class="panel-collapse collapse">
+    <div id="collapseThree" class="panel-collapse collapse in">
         <div class="panel-body">
           <%= link_to "予約", reservations_path %>
         </div>
@@ -61,7 +61,7 @@
   </div>
 
 
-  <div class="panel panel-default">
+  <div class="panel panel-danger">
 
     <div class="panel-heading">
       <h4 class="panel-title">
@@ -69,7 +69,7 @@
       </h4>
     </div>
 
-    <div id="collapseFour" class="panel-collapse collapse">
+    <div id="collapseFour" class="panel-collapse collapse in">
       <div class="panel-body">
         <%= link_to "ユーザー情報", accounts_users_path %>
       </div>
@@ -80,27 +80,46 @@
   </div>
 
 
+  <div class="panel panel-danger">
+
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">開発用一時メニュー</a>
+      </h4>
+    </div>
+
+    <div id="collapseFive" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <%= link_to "カテゴリ", categories_path %>
+      </div>
+      <div class="panel-body">
+        <%= link_to "アイテム", item_types_path %>
+      </div>
+      <div class="panel-body">
+        <%= link_to "ブランド", brands_path %>
+      </div>
+      <div class="panel-body">
+        <%= link_to "商品", products_path %>
+      </div>
+      <div class="panel-body">
+        <%= link_to "エステメニュー", esthe_menus_path %>
+      </div>
+      <div class="panel-body">
+        <%= link_to "アイテムタイプ", item_types_path %>
+      </div>
+      <div class="panel-body">
+        <%= link_to "ニュース", news_index_path %>
+      </div>
+      <div class="panel-body">
+        <%= link_to "ニュースタイプ", news_types_path %>
+      </div>
+      <div class="panel-body">
+        <%= link_to "予約", reservations_path %>
+      </div>
+      <div class="panel-body">
+        <%= link_to "在庫", stocks_path %>
+      </div>
+    </div>
+  </div>
+
 </div>
-
-
-<script>
-
-  // $(document).ready(function () {
-  //     // グループが表示されているときは、アクティブなアコーディオングループとして保存
-  //     $("#accordion").on('shown.bs.collapse', function () {
-  //         var active = $("#accordion .in").attr('id');
-  //         $.cookie('activeAccordionGroup', active);
-  //       //  alert(active);
-  //     });
-  //     $("#accordion").on('hidden.bs.collapse', function () {
-  //         $.removeCookie('activeAccordionGroup');
-  //     });
-  //     var last = $.cookie('activeAccordionGroup');
-  //     if (last != null) {
-  //         // デフォルト折りたたみ設定を削除
-  //         $("#accordion .panel-collapse").removeClass('in');
-  //         // account_last可視グループを表示
-  //         $("#" + last).addClass("in");
-  //     }
-  // });
-</script>

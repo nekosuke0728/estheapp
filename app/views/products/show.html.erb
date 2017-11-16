@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @product.name %>
@@ -7,12 +5,12 @@
 
 <p>
   <strong>Brand:</strong>
-  <%= @product.brand %>
+  <%= @product.brand.name %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @product.category %>
+  <%= @product.category.name %>
 </p>
 
 <p>
@@ -28,6 +26,11 @@
 <p>
   <strong>Status:</strong>
   <%= @product.status %>
+</p>
+
+<p>
+  <strong>ItemType:</strong>
+  <%= @product.item_type.name %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |

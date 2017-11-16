@@ -4,6 +4,15 @@ ja:
       user: "ユーザー"
       staff: "スタッフ"
       user_info: "アカウント詳細情報"
+      category: "カテゴリ"
+      item_type: "アイテムタイプ"
+      product: "商品"
+      news: "ニュース"
+      news_type: "ニュースタイプ"
+      brand: "ブランド"
+      esthe_menu: "エステメニュー"
+      reservation: "予約"
+      stock: "在庫"
     attributes:
       user:
         confirmation_sent_at: "パスワード確認送信時刻"
@@ -69,3 +78,27 @@ ja:
         zipcode: "郵便番号"
         prefecture_id: "都道府県"
         address: "都道府県以降の住所"
+      category: 
+        name: "カテゴリ名"
+      item_type:
+        name: "アイテムタイプ名"
+        category_id: "カテゴリ"
+        category: "カテゴリ"
+      product:
+        name: "商品名"
+        brand_id: "ブランド"
+        brand: "ブランド"
+        category_id: "カテゴリ"
+        category: "カテゴリ"
+        item_type_id: "アイテムタイプ"
+        item_type: "アイテムタイプ"
+        price: "金額"
+        description: "商品説明"
+        status: "販売ステータス"
+      news: 
+      news_type: 
+      brand: 
+      esthe_menu: 
+      reservation:
+        comment: "ご要望・連絡事項"
+      stock: 

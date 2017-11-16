@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171115152553) do
+ActiveRecord::Schema.define(version: 20171115195246) do
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20171115152553) do
     t.integer "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
     t.index ["news_type_id"], name: "index_news_on_news_type_id"
   end
 
@@ -110,8 +111,10 @@ ActiveRecord::Schema.define(version: 20171115152553) do
     t.boolean "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "item_type_id"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["item_type_id"], name: "index_products_on_item_type_id"
   end
 
   create_table "reservations", force: :cascade do |t|

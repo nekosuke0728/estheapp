@@ -1,5 +1,5 @@
-class OrderproductsController < ApplicationController
-  before_action :set_orderproduct, only: [:show, :edit, :update, :destroy]
+class OrderProductsController < ApplicationController
+  before_action :set_order_product, only: [:show, :edit, :update, :destroy]
 
   # GET /orderproducts
   # GET /orderproducts.json

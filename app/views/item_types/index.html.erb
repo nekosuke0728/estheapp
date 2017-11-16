@@ -1,6 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Item Types</h1>
+
+<hr>
+
+<%= link_to 'New Item Type', new_item_type_path %>
+
+<hr>
 
 <table>
   <thead>
@@ -18,12 +22,10 @@
         <td><%= item_type.name %></td>
         <td><%= link_to 'Show', item_type %></td>
         <td><%= link_to 'Edit', edit_item_type_path(item_type) %></td>
-        <td><%= link_to 'Destroy', item_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', item_type, method: :delete, data: { confirm: '本当によろしいですか?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Item Type', new_item_type_path %>

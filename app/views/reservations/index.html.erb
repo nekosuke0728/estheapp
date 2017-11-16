@@ -1,6 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Reservations</h1>
+
+<hr>
+
+<%= link_to 'New Reservation', new_reservation_path %>
+
+<hr>
 
 <table>
   <thead>
@@ -17,19 +21,21 @@
   <tbody>
     <% @reservations.each do |reservation| %>
       <tr>
-        <td><%= reservation.user_id %></td>
-        <td><%= reservation.staff_id %></td>
-        <td><%= reservation.esthe_menu_id %></td>
+        <% if @user_info.nil? %>
+          <td>未登録</td>
+        <% else %>
+          <td><%= reservation.user_info.first_name %><%= reservation.user_info.last_name %></td>          
+        <% end %>
+        <td><%= reservation.staff.name %></td>
+        <td><%= reservation.esthe_menu.name %></td>
         <td><%= reservation.start_at %></td>
         <td><%= reservation.comment %></td>
         <td><%= link_to 'Show', reservation %></td>
         <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
-        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: '本当によろしいですか?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Reservation', new_reservation_path %>
