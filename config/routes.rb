@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :skin_trouble_types
   resources :item_types
   root 'home#top'
 

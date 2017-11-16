@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Skin Trouble Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @skin_trouble_types.each do |skin_trouble_type| %>
+      <tr>
+        <td><%= skin_trouble_type.name %></td>
+        <td><%= link_to 'Show', skin_trouble_type %></td>
+        <td><%= link_to 'Edit', edit_skin_trouble_type_path(skin_trouble_type) %></td>
+        <td><%= link_to 'Destroy', skin_trouble_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Skin Trouble Type', new_skin_trouble_type_path %>

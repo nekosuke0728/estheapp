@@ -28,7 +28,7 @@
         <% end %>
         <td><%= reservation.staff.name %></td>
         <td><%= reservation.esthe_menu.name %></td>
-        <td><%= reservation.start_at %></td>
+        <td><%= simple_time(reservation.start_at) %>-</td>
         <td><%= reservation.comment %></td>
         <td><%= link_to 'Show', reservation %></td>
         <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>

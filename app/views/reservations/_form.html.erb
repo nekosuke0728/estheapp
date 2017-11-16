@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <hr>
+
   <div class="field">
     <%= f.label :user_id, "ユーザーID" %>
     <%= f.collection_select :user_id, User.all, :id, :id, include_blank: true %>
@@ -28,7 +30,7 @@
 
   <div class="field">
     <%= f.label :start_at %>
-    <%= f.datetime_select :start_at, id: :reservation_start_at %>
+    <%= f.datetime_select :start_at, minute_step: 15, id: :reservation_start_at %>
   </div>
 
   <div class="field">

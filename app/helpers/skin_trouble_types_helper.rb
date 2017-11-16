@@ -1,0 +1,2 @@
+module SkinTroubleTypesHelper
+end
