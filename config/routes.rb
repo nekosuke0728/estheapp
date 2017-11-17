@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :skin_trouble_types
-  resources :item_types
   root 'home#top'
 
   devise_for :users, controllers: {
@@ -37,5 +35,7 @@ Rails.application.routes.draw do
   resources :brands
   resources :carts
   resources :reservations
+  resources :skin_trouble_types, except:[:new, :show]
+  resources :item_types
   
 end

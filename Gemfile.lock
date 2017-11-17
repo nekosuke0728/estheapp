@@ -501,8 +501,6 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
-    bootstrap3-datetimepicker-rails (4.17.47)
-      momentjs-rails (>= 2.8.1)
     builder (3.2.3)
     bullet (5.6.1)
       activesupport (>= 3.0.0)
@@ -737,8 +735,6 @@ GEM
     jquery-turbolinks (2.1.0)
       railties (>= 3.1.0)
       turbolinks
-    jquery-ui-rails (6.0.1)
-      railties (>= 3.2.16)
     json (1.8.6)
     jwt (1.5.6)
     kaminari (1.1.1)
@@ -770,8 +766,6 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
-    momentjs-rails (2.17.1)
-      railties (>= 3.1)
     multi_json (1.12.2)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
@@ -957,11 +951,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   aws-sdk
   better_errors
   binding_of_caller
   bootstrap-sass (~> 3.3, >= 3.3.7)
-  bootstrap3-datetimepicker-rails (~> 4.17, >= 4.17.47)
   bullet
   byebug
   capybara (~> 2.13)
@@ -978,10 +972,8 @@ DEPENDENCIES
   jp_prefecture (~> 0.9.0)
   jquery-rails
   jquery-turbolinks
-  jquery-ui-rails
   kaminari (~> 1.0, >= 1.0.1)
   listen (>= 3.0.5, < 3.2)
-  momentjs-rails (~> 2.17, >= 2.17.1)
   omniauth
   omniauth-facebook
   omniauth-google-oauth2
@@ -1008,4 +1000,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.16.0.pre.2
+   1.16.0

@@ -1,17 +1,4 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require jquery-ui
- *= require font-awesome
+ /*
  *= require_tree .
  *= require_self
  */
@@ -19,14 +6,35 @@
 @import "font-awesome";
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import 'bootstrap-datetimepicker';
 
+// ----------------------------------------------
+
+// macbook width 1440px * 753px
+// display 2048px
+
+// 
+// @media以外の所は全てのサイズで読み込まれます。
+// 
+// @media screen and (min-width:480px) { 
+//     /*　画面サイズが480pxから767pxはここを読み込む　*/
+// }
+// @media screen and (min-width:768px) and ( max-width:1024px) {
+//     /*　画面サイズが768pxから1024pxまではここを読み込む　*/
+// }
+// @media screen and (min-width:1024px) {
+//     /*　画面サイズが1024pxからはここを読み込む　*/
+// }
+
+// lg  xl  テレビ、デスクトップPCなどの大画面モニタ  1200px以上
+// md  lg  ノートパソコンなどの省サイズモニタ        992px以上
+// sm  md  タブレットなど                        768px以上
+// xs  sm  ファブレットなど                       576px以上
+// -   xs  スマートフォン、組み込み端末など           576px未満
 
 
 // ---------------------------------------------- all
 body {
-  padding-top: 70px;
-  // font-size:62.5%;
+  padding-top: 50px;
 }
 
 a {
@@ -46,12 +54,25 @@ label {
 }
 
 .main {
-  padding: 3%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-top: 50px;
+  padding: 80px 20px 20% 20px;
 }
+
 
 // ---------------------------------------------- navbar
 .navbar-costom {
   background-color: #ffe4e1;
+  .navbar-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+  }
   .nav {
     .open {
       a:focus {
@@ -82,22 +103,25 @@ label {
   }
 }
 
-// ---------------------------------------------- sidebar
-.sidebar {
-  margin-top: 70px;
-  display: none;
+@media screen and (max-width:767px) {
+  .navbar-brand {
+    font-size: 20px;
+  }  
 }
 
-@media screen and (min-width: 768px) {
-  .sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    display: block;
-    overflow-x: hidden;
-    overflow-y: auto
-  }
+// ---------------------------------------------- sidebar
+.sidebar {
+  margin-top: 50px;
+  display: none;
+  padding-top: 30px;
+  padding-bottom: 15%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .panel-body {

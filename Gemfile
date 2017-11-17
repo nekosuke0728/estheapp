@@ -88,12 +88,14 @@ gem 'rmagick', require: 'RMagick'
 # bootstrap
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
+# コンパイル時自動でベンダープレフィックスを付与
+gem 'autoprefixer-rails'
+
 # ページネーション
 gem 'kaminari', '~> 1.0', '>= 1.0.1'
 
 # jquery
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 
 # 検索
@@ -104,10 +106,6 @@ gem 'aws-sdk'
 
 # 都道府県データ
 gem 'jp_prefecture', '~> 0.9.0'
-
-# 日時入力フォーム
-gem 'momentjs-rails', '~> 2.17', '>= 2.17.1'
-gem 'bootstrap3-datetimepicker-rails', '~> 4.17', '>= 4.17.47'
 
 # アイコン
 gem "font-awesome-rails"

@@ -1,36 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- meta data -->
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- title -->
     <title>Estheapp</title>
-
-    <!-- favicon -->
+    <!-- ファビコン -->
     <!-- <link rel="icon" type="image/vnd.microsoft.icon" href="images/favicon.ico"> -->
-
-    <!-- csrf攻撃対策 -->
     <%= csrf_meta_tags %>
-
     <!-- fonts -->
-
-    <!-- css -->
-
-    <!-- js -->
-    <!-- 郵便番号から住所自動入力 -->
-    <!-- <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script> -->
-
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  
   </head>
 
   <body>
-    <nav class="navbar navbar-default navbar-static-top navbar-fixed-top navbar-costom">
-      <div class="container">
 
+    <nav class="navbar navbar-default navbar-fixed-top navbar-costom">
+      <div class="container">
+        <!-- width767px以下はハンバーガーメニュー -->
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -68,7 +56,9 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
           <% flash.each do |key, value| %>
-            <%= content_tag(:div, value, class: "#{key}") %>
+            <% key = "info" if key == "notice" %>
+            <% key = "danger"  if key == "alert" %>
+            <%= content_tag :div, value, class: "alert alert-#{key}" %>
           <% end %>
 
           <%= yield %>

@@ -6,66 +6,57 @@
 
 <hr>
 
+<a class="btn btn-default" data-toggle="collapse" href="#collapseExample">
+  商品検索
+</a>
+<div class="collapse" id="collapseExample">
+  <div class="well">
+    <%= search_form_for @q do |f| %>
+      <div class="control-group">
+        <%= f.label :name_cont, "商品名" %>
+        <div class="controls">
+          <%= f.text_field :name_cont %>
+        </div>
+      </div>
 
-<div class="panel-group search-box">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" href="#collapse1">商品検索</a>
-      </h4>
-    </div>
-    <div id="collapse1" class="panel-collapse collapse">
-      <div class="panel-body">
+      <div class="control-group">
 
-        <%= search_form_for @q do |f| %>
-          <div class="control-group">
-            <%= f.label :name_cont, "商品名" %>
-            <div class="controls">
-              <%= f.text_field :name_cont %>
-            </div>
-          </div>
+        <%= f.label :price_gteq %>
+        <div class="controls">
+          <%= f.number_field :price_gteq %>
+        </div>
 
-          <div class="control-group">
-
-            <%= f.label :price_gteq %>
-            <div class="controls">
-              <%= f.number_field :price_gteq %>
-            </div>
-
-            <%= f.label :price_lteq %>
-            <div class="controls">
-              <%= f.number_field :price_lteq %>
-            </div>
-
-          </div>
-
-          <div class="control-group">
-            <%= f.label :brand_id_in, "ブランド" %>
-            <div class="controls">
-              <%= f.collection_check_boxes :brand_id_in, @brands, :id, :name %>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <%= f.label :category_id_in, "カテゴリ" %>
-            <div class="controls">
-              <%= f.collection_check_boxes :category_id_in, @categories, :id, :name %>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <%= f.label :item_type_id_in, "アイテムタイプ" %>
-            <div class="controls">
-              <%= f.collection_check_boxes :item_type_id_in, @item_types, :id, :name %>
-            </div>
-          </div>
-
-          <%= f.submit "検索", :class=>"btn btn-default btn-sm" %>
-          <%= link_to 'クリア', request.path, class: "btn btn-default btn-sm" %>
-        <% end %>
+        <%= f.label :price_lteq %>
+        <div class="controls">
+          <%= f.number_field :price_lteq %>
+        </div>
 
       </div>
-    </div>
+
+      <div class="control-group">
+        <%= f.label :brand_id_in, "ブランド" %>
+        <div class="controls">
+          <%= f.collection_check_boxes :brand_id_in, @brands, :id, :name %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :category_id_in, "カテゴリ" %>
+        <div class="controls">
+          <%= f.collection_check_boxes :category_id_in, @categories, :id, :name %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :item_type_id_in, "アイテムタイプ" %>
+        <div class="controls">
+          <%= f.collection_check_boxes :item_type_id_in, @item_types, :id, :name %>
+        </div>
+      </div>
+
+      <%= f.submit "検索", :class=>"btn btn-default btn-sm" %>
+      <%= link_to 'クリア', request.path, class: "btn btn-default btn-sm" %>
+    <% end %>
   </div>
 </div>
 

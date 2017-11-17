@@ -2,7 +2,6 @@
   <% if skin_trouble_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(skin_trouble_type.errors.count, "error") %> prohibited this skin_trouble_type from being saved:</h2>
-
       <ul>
       <% skin_trouble_type.errors.full_messages.each do |message| %>
         <li><%= message %></li>
