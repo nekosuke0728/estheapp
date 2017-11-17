@@ -1,44 +1,41 @@
-<h1>Reservations</h1>
+<h3>予約リスト</h3>
 
-<hr>
-
-<%= link_to 'New Reservation', new_reservation_path %>
-
-<hr>
+<%= link_to '新規作成', new_reservation_path, class: "btn btn-primary btn-sm" %>
 
 <p class="caution-text">※ ユーザー詳細情報にて名前が未登録のお客様の場合、ユーザーIDの表示となります。</p>
 
-<table>
-
-  <thead>
-    <tr>
-      <th>お客様名</th>
-      <th>担当スタッフ</th>
-      <th>エステメニュー</th>
-      <th>予約開始時間</th>
-      <th>ご要望・連絡事項</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @reservations.each do |reservation| %>
-      <tr>
-        <% if @user_info.nil? %>
-          <td><%= reservation.user_id %></td>
-        <% else %>
-          <td><%= reservation.user_info.first_name %><%= reservation.user_info.last_name %></td>          
-        <% end %>
-        <td><%= reservation.staff.name %></td>
-        <td><%= reservation.esthe_menu.name %></td>
-        <td><%= l reservation.start_at, format: :custom %>-</td>
-        <td><%= reservation.comment %></td>
-        <td><%= link_to 'Show', reservation, class: "btn btn-info btn-sm" %></td>
-        <td><%= link_to 'Edit', edit_reservation_path(reservation), class: "btn btn-info btn-sm" %></td>
-        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: '本当によろしいですか?' }, class: "btn btn-danger btn-sm" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
 <br>
+<br>
+
+<div class="table-responsive">
+  <table class="table table-condensed table-hover">
+    <thead>
+      <tr>
+        <th>お客様名</th>
+        <th>担当スタッフ</th>
+        <th>エステメニュー</th>
+        <th>予約開始時間</th>
+        <th>ご要望・連絡事項</th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+        <tr>
+          <% if @user_info.nil? %>
+            <td><%= reservation.user_id %></td>
+          <% else %>
+            <td><%= reservation.user_info.first_name %><%= reservation.user_info.last_name %></td>          
+          <% end %>
+          <td><%= reservation.staff.name %></td>
+          <td><%= reservation.esthe_menu.name %></td>
+          <td><%= l reservation.start_at, format: :custom %>-</td>
+          <td><%= reservation.comment %></td>
+          <td class="btn-in-table"><%= link_to '詳細', reservation, class: "btn btn-info btn-sm" %></td>
+          <td class="btn-in-table"><%= link_to '編集', edit_reservation_path(reservation), class: "btn btn-info btn-sm" %></td>
+          <td class="btn-in-table"><%= link_to '削除', reservation, method: :delete, data: { confirm: '削除してよろしいですか?' }, class: "btn btn-danger btn-sm" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

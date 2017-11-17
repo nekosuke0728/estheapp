@@ -1,16 +1,20 @@
 class PaymentsController < ApplicationController
   before_action :authenticate_staff!
-  before_action :set_payment, only: [:show, :edit, :update, :destroy]
+  before_action :set_payment, only: [:show, :update, :destroy]
 
   def index
     @payments = Payment.all
+    if params[:id].present?
+      set_payment
+    else
+      @payment = Payment.new
+    end
   end
 
   def show
   end
 
   def new
-    @payment = Payment.new
   end
 
   def edit

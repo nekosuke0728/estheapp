@@ -1,12 +1,20 @@
 class SkinTroubleTypesController < ApplicationController
-  before_action :set_skin_trouble_type, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_staff!
+  before_action :set_skin_trouble_type, only: [:show, :update, :destroy]
 
   def index
     @skin_trouble_types = SkinTroubleType.all
-    @skin_trouble_type = SkinTroubleType.new
+    if params[:id].present?
+      set_skin_trouble_type
+    else
+      @skin_trouble_type = SkinTroubleType.new
+    end
   end
 
   def show
+  end
+
+  def new
   end
 
   def edit

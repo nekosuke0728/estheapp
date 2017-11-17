@@ -4,13 +4,17 @@ class BrandsController < ApplicationController
 
   def index
     @brands = Brand.all
+    if params[:id].present?
+      set_brand
+    else
+      @brand = Brand.new
+    end
   end
 
   def show
   end
 
   def new
-    @brand = Brand.new
   end
 
   def edit

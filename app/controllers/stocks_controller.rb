@@ -11,6 +11,7 @@ class StocksController < ApplicationController
 
   def new
     @stock = Stock.new
+    @stock.in_status = true
   end
 
   def edit

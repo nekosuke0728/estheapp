@@ -2,16 +2,18 @@
 
 <hr>
 
-<%= link_to 'New Product', new_product_path %>
+<%= link_to '新規作成', new_product_path, class: "btn btn-primary btn-sm" %>
 
 <hr>
 
-<a class="btn btn-default" data-toggle="collapse" href="#collapseExample">
+<a class="btn btn-default btn-sm" data-toggle="collapse" href="#collapseExample">
   商品検索
 </a>
+
 <div class="collapse" id="collapseExample">
   <div class="well">
     <%= search_form_for @q do |f| %>
+
       <div class="control-group">
         <%= f.label :name_cont, "商品名" %>
         <div class="controls">
@@ -19,37 +21,38 @@
         </div>
       </div>
 
-      <div class="control-group">
+      <hr>
 
+      <div class="control-group">
         <%= f.label :price_gteq %>
         <div class="controls">
           <%= f.number_field :price_gteq %>
         </div>
-
         <%= f.label :price_lteq %>
         <div class="controls">
           <%= f.number_field :price_lteq %>
         </div>
-
       </div>
+
+      <hr>
 
       <div class="control-group">
         <%= f.label :brand_id_in, "ブランド" %>
-        <div class="controls">
+        <div class="controls search-check-box">
           <%= f.collection_check_boxes :brand_id_in, @brands, :id, :name %>
         </div>
       </div>
-
+      <hr>
       <div class="control-group">
         <%= f.label :category_id_in, "カテゴリ" %>
-        <div class="controls">
+        <div class="controls search-check-box">
           <%= f.collection_check_boxes :category_id_in, @categories, :id, :name %>
         </div>
       </div>
-
+      <hr>
       <div class="control-group">
         <%= f.label :item_type_id_in, "アイテムタイプ" %>
-        <div class="controls">
+        <div class="controls search-check-box">
           <%= f.collection_check_boxes :item_type_id_in, @item_types, :id, :name %>
         </div>
       </div>
@@ -63,37 +66,35 @@
 
 <hr>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Brand</th>
-      <th>Category</th>
-      <th>Price</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>ItemType</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
+<div class="table-responsive">
+  <table class="table table-condensed table-hover">
+    <thead>
       <tr>
-        <td><%= product.name %></td>
-        <td><%= product.brand.name %></td>
-        <td><%= product.category.name %></td>
-        <td><%= product.price %></td>
-        <td><%= product.description %></td>
-        <td><%= product.status %></td>
-        <td><%= product.item_type.name %></td>
-        <td><%= link_to 'Show', product, class: "btn btn-info btn-sm" %></td>
-        <td><%= link_to 'Edit', edit_product_path(product), class: "btn btn-info btn-sm" %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: '本当によろしいですか?' }, class: "btn btn-danger btn-sm" %></td>
+        <th>Name</th>
+        <th>Brand</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>ItemType</th>
+        <th>Status</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= product.name %></td>
+          <td><%= product.brand.name %></td>
+          <td><%= product.price %></td>
+          <td><%= product.category.name %></td>
+          <td><%= product.item_type.name %></td>
+          <td><%= product.status %></td>
+          <td class="btn-in-table"><%= link_to '詳細', product, class: "btn btn-info btn-sm" %></td>
+          <td class="btn-in-table"><%= link_to '編集', edit_product_path(product), class: "btn btn-info btn-sm" %></td>
+          <td class="btn-in-table"><%= link_to '削除', product, method: :delete, data: { confirm: '削除してよろしいですか?' }, class: "btn btn-danger btn-sm" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 

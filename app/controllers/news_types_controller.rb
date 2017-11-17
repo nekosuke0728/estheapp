@@ -4,13 +4,17 @@ class NewsTypesController < ApplicationController
 
   def index
     @news_types = NewsType.all
+    if params[:id].present?
+      set_news_type
+    else
+      @news_type = NewsType.new
+    end
   end
 
   def show
   end
 
   def new
-    @news_type = NewsType.new
   end
 
   def edit

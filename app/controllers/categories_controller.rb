@@ -4,6 +4,11 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    if params[:id].present?
+      set_category
+    else
+      @category = Category.new
+    end
   end
 
   def show

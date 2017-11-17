@@ -1,21 +1,22 @@
 <%= form_with(model: skin_trouble_type, local: true) do |form| %>
-  <% if skin_trouble_type.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(skin_trouble_type.errors.count, "error") %> prohibited this skin_trouble_type from being saved:</h2>
+
+  <% if @skin_trouble_type.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
       <ul>
-      <% skin_trouble_type.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @skin_trouble_type.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
     <%= form.text_field :name, id: :skin_trouble_type_name %>
   </div>
 
+  <br>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary btn-sm" %>
   </div>
 <% end %>

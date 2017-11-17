@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :news_types
   resources :stocks
   resources :order_products
-  resources :orders
+  resources :orders, except:[:edit, :update, :destroy]
   resources :payments
   resources :cart_products
   resources :products
@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   resources :brands
   resources :carts
   resources :reservations
-  resources :skin_trouble_types, except:[:new, :show]
+  resources :skin_trouble_types
   resources :item_types
   
 end

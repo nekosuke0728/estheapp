@@ -8,11 +8,13 @@ ja:
       item_type: "アイテムタイプ"
       product: "商品"
       news: "ニュース"
-      news_type: "ニュースタイプ"
+      news_type: "ニュース分類"
       brand: "ブランド"
       esthe_menu: "エステメニュー"
       reservation: "予約"
       stock: "在庫"
+      skin_troble_type: "肌のお悩み"
+      payment: "支払方法"
     attributes:
       user:
         confirmation_sent_at: "パスワード確認送信時刻"
@@ -97,8 +99,17 @@ ja:
         status: "販売ステータス"
       news: 
       news_type: 
-      brand: 
+      brand:
+        name: "ブランド名" 
       esthe_menu: 
       reservation:
         comment: "ご要望・連絡事項"
       stock: 
+        in_status: "入庫ステータス"
+        product_id: "商品"
+        date: "日付"
+        quantity: "数量"
+      skin_trouble_type:
+        name: "肌のお悩みタイプ名"
+      payment:
+        name: "支払方法名"

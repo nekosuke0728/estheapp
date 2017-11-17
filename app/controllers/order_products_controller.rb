@@ -1,74 +1,50 @@
 class OrderProductsController < ApplicationController
   before_action :set_order_product, only: [:show, :edit, :update, :destroy]
 
-  # GET /orderproducts
-  # GET /orderproducts.json
   def index
-    @orderproducts = Orderproduct.all
+    @orderproducts = OrderProduct.all
   end
 
-  # GET /orderproducts/1
-  # GET /orderproducts/1.json
   def show
   end
 
-  # GET /orderproducts/new
   def new
-    @orderproduct = Orderproduct.new
+    @orderproduct = OrderProduct.new
   end
 
-  # GET /orderproducts/1/edit
   def edit
   end
 
-  # POST /orderproducts
-  # POST /orderproducts.json
   def create
-    @orderproduct = Orderproduct.new(orderproduct_params)
-
-    respond_to do |format|
-      if @orderproduct.save
-        format.html { redirect_to @orderproduct, notice: 'Orderproduct was successfully created.' }
-        format.json { render :show, status: :created, location: @orderproduct }
-      else
-        format.html { render :new }
-        format.json { render json: @orderproduct.errors, status: :unprocessable_entity }
-      end
+    @orderproduct = OrderProduct.new(orderproduct_params)
+    if @orderproduct.save
+      redirect_to @order_product, notice: 'オーダー商品は正常に作成されました' }
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /orderproducts/1
-  # PATCH/PUT /orderproducts/1.json
   def update
-    respond_to do |format|
-      if @orderproduct.update(orderproduct_params)
-        format.html { redirect_to @orderproduct, notice: 'Orderproduct was successfully updated.' }
-        format.json { render :show, status: :ok, location: @orderproduct }
-      else
-        format.html { render :edit }
-        format.json { render json: @orderproduct.errors, status: :unprocessable_entity }
-      end
+    if @orderproduct.update(orderproduct_params)
+      redirect_to @order_product, notice: 'オーダー商品は正常に作成されました' }
+    else
+      render :edit
     end
   end
 
-  # DELETE /orderproducts/1
-  # DELETE /orderproducts/1.json
   def destroy
-    @orderproduct.destroy
-    respond_to do |format|
-      format.html { redirect_to orderproducts_url, notice: 'Orderproduct was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @order_product.destroy
+    redirect_to order_products_url, notice: 'オーダー商品は正常に作成されました' }
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_orderproduct
-      @orderproduct = Orderproduct.find(params[:id])
+      @order_product = OrderProduct.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def orderproduct_params
-      params.require(:orderproduct).permit(:order_id, :product_id, :quantity, :sub_total)
+      params.require(:order_product).permit(:order_id, :product_id, :quantity, :sub_total)
     end
+
 end

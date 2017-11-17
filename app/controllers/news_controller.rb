@@ -2,8 +2,6 @@ class NewsController < ApplicationController
   before_action :authenticate_staff!
   before_action :set_news, only: [:show, :edit, :update, :destroy]
 
-  # GET /news
-  # GET /news.json
   def index
     @news = News.all
   end

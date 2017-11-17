@@ -1,35 +1,30 @@
-<h1>Esthe Menus</h1>
+<h3>エステメニュー</h3>
 
-<hr>
+<%= link_to '新規作成', new_esthe_menu_path, class: "btn btn-primary btn-sm" %>
 
-<%= link_to 'New Esthe Menu', new_esthe_menu_path %>
+<br>
+<br>
 
-<hr>
-
-<table>
+<div class="table-responsive">
+  <table class="table table-condensed table-hover">
   <thead>
     <tr>
       <th>Name</th>
       <th>Time frame</th>
-      <th>Description</th>
       <th>Price</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
-  <tbody>
-    <% @esthe_menus.each do |esthe_menu| %>
-      <tr>
-        <td><%= esthe_menu.name %></td>
-        <td><%= esthe_menu.time_frame %>分</td>
-        <td><%= esthe_menu.description %></td>
-        <td>¥<%= esthe_menu.price %></td>
-        <td><%= link_to 'Show', esthe_menu, class: "btn btn-info btn-sm" %></td>
-        <td><%= link_to 'Edit', edit_esthe_menu_path(esthe_menu), class: "btn btn-info btn-sm" %></td>
-        <td><%= link_to 'Destroy', esthe_menu, method: :delete, data: { confirm: '本当によろしいですか?' }, class: "btn btn-danger btn-sm" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+    <tbody>
+      <% @esthe_menus.each do |esthe_menu| %>
+        <tr>
+          <td><%= esthe_menu.name %></td>
+          <td><%= esthe_menu.time_frame %>分</td>
+          <td>¥<%= esthe_menu.price %></td>
+          <td class="btn-in-table"><%= link_to '編集', esthe_menus_path(id: esthe_menu.id), class: "btn btn-info btn-sm" %></td>
+          <td class="btn-in-table"><%= link_to '削除', esthe_menu, method: :delete, data: { confirm: '削除してよろしいですか?' }, class: "btn btn-danger btn-sm" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

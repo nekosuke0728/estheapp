@@ -1,20 +1,14 @@
 <%= form_with(model: stock, local: true) do |f| %>
-  <% if stock.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(stock.errors.count, "error") %> prohibited this stock from being saved:</h2>
 
+  <% if @stock.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
       <ul>
-      <% stock.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @stock.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :product_id %>
-    <%= f.collection_select :product_id, Product.all, :id, :name, include_blank: true %>
-  </div>
 
   <div class="field">
     <%= f.label :date %>
@@ -22,16 +16,21 @@
   </div>
 
   <div class="field">
+    <%= f.label :product_id %>
+    <%= f.collection_select :product_id, Product.all, :id, :name, include_blank: true %>
+  </div>
+  
+  <div class="field">
     <%= f.label :quantity %>
     <%= f.number_field :quantity, id: :stock_quantity %>
   </div>
 
   <div class="field">
-    <%= f.label :in_status %>
+    <%= f.label :in_status, "入庫" %>
     <%= f.check_box :in_status, id: :stock_in_status %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary btn-sm" %>
   </div>
 <% end %>

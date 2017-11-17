@@ -1,33 +1,42 @@
 <h3>肌のお悩みタイプ</h3>
 
-<%= form_for(@skin_trouble_type) do |f| %>
+<%= form_with(model: @skin_trouble_type, local: true) do |f| %>
+
   <% if @skin_trouble_type.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@skin_trouble_type.errors.count, "error") %> prohibited this skin_trouble_type from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger">
       <ul>
-      <% @skin_trouble_type.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @skin_trouble_type.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
+
   <div class="field">
-    <% f.label :name %>
-    <%= f.text_field :name, id: :skin_trouble_type_name, class: "input-min" %>
+    <%= f.text_field :name, id: :skin_trouble_type_name %>
   </div>
+  <br>
   <div class="actions">
-    <%= f.submit '新規追加', class: "btn btn-primary btn-sm" %>
+    <%= f.submit class: "btn btn-primary btn-sm" %>
   </div>
+  <br>
 <% end %>
+
 
 <div class="table-responsive">
   <table class="table table-condensed table-hover">
     <tbody>
       <% @skin_trouble_types.each do |skin_trouble_type| %>
         <tr>
-          <td><%= skin_trouble_type.name %></td>
-          <td class="table-in-btn"><%= link_to '編集', edit_skin_trouble_type_path(skin_trouble_type), class: "btn btn-info btn-sm" %></td>
-          <td class="table-in-btn"><%= link_to '削除', skin_trouble_type, method: :delete, data: { confirm: '本当によろしいですか?' }, class: "btn btn-danger btn-sm" %></td>
+          <td>
+            <%= skin_trouble_type.name %>
+          </td>
+          <td class="btn-in-table">
+            <%= link_to '編集', skin_trouble_types_path(id: skin_trouble_type.id), class: "btn btn-info btn-sm" %>
+          </td>
+           <td class="btn-in-table">
+            <%= link_to '削除', skin_trouble_type, method: :delete, data: { confirm: '削除してよろしいですか?' }, class: "btn btn-danger btn-sm" %>
+          </td>
         </tr>
       <% end %>
     </tbody>
