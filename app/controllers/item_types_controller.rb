@@ -3,7 +3,13 @@ class ItemTypesController < ApplicationController
   before_action :set_item_type, only: [:show, :edit, :update, :destroy]
 
   def index
-    @item_types = ItemType.all
+    # @item_types = ItemType.where(:category_id => params[:category_id])
+
+    if params[:category_id].nil?
+      @item_types = ItemType.all
+    else
+      @item_types = ItemType.where(:category_id => params[:category_id])
+    end
   end
 
   def show

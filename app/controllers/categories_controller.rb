@@ -3,44 +3,51 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
-    @categories = Category.all
+    @categories = Category.order(:created_at => :desc)
+
     if params[:id].present?
       set_category
     else
       @category = Category.new
     end
+
   end
 
-  def show
-  end
+  # def show
+  # end
 
-  def new
-    @category = Category.new
-  end
+  # def new
+  #   @category = Category.new
+  # end
 
-  def edit
-  end
+  # def edit
+  # end
 
   def create
     @category = Category.new(category_params)
     if @category.save
-      redirect_to categories_path, notice: 'カテゴリは正常に作成されました'
+      redirect_to categories_path
     else
-      render :new
+      @categories = Category.order(:created_at)
+      render :index
     end
   end
 
   def update
     if @category.update(category_params)
-      redirect_to categories_path, notice: 'カテゴリは正常に更新されました'
+      render json: {:status => "ok"}
     else
-      render :edit
+      render json: {:status => "残念"}
     end
   end
 
   def destroy
-    @category.destroy
-    redirect_to categories_path, notice: 'カテゴリは正常に削除されました'
+    if @category.destroy
+      render json: {:status => "ok"}
+    else 
+      render json: {:status => "残念"}
+    end
+
   end
 
   private

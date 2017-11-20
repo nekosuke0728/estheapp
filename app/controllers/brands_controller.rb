@@ -4,11 +4,11 @@ class BrandsController < ApplicationController
 
   def index
     @brands = Brand.all
-    if params[:id].present?
-      set_brand
-    else
+    # if params[:id].present?
+    #   set_brand
+    # else
       @brand = Brand.new
-    end
+    # end
   end
 
   def show
@@ -25,7 +25,8 @@ class BrandsController < ApplicationController
     if @brand.save
       redirect_to brands_path, notice: 'ブランドは正常に作成されました'
     else
-      render :new
+      @brands = Brand.all      
+      render :index
     end
   end
 
@@ -33,6 +34,7 @@ class BrandsController < ApplicationController
     if @brand.update(brand_params)
       redirect_to brands_path, notice: 'ブランドは正常に更新されました'
     else
+      @brands = Brand.all
       render :edit
     end
   end

@@ -15,27 +15,88 @@
   </div>
   <br>
   <div class="actions">
-    <%= f.submit class: "btn btn-primary btn-sm" %>
+    <%= f.submit '新規追加', class: "btn btn-primary btn-sm" %>
   </div>
   <br>
 <% end %>  
-  
+
+<p>※紐付いているアイテムタイプがある場合には削除ボタンは表示されません。</p>
 <div class="table-responsive">
+
   <table class="table table-condensed table-hover">
+
     <tbody>
+
       <% @categories.each do |category| %>
-        <tr>
-          <td>
+        <tr id="<%= category.id %>">
+          <td contentEditable='true' class="categoryName" data-id="<%= category.id %>">
             <%= category.name %>
           </td>
           <td class="btn-in-table">
-            <%= link_to '編集', categories_path(id: category.id), class: "btn btn-info btn-sm" %>
-          </td>
-           <td class="btn-in-table">
-            <%= link_to '削除', category, method: :delete, data: { confirm: '削除してよろしいですか?' }, class: "btn btn-danger btn-sm" %>
+            <span class="btn btn-danger btn-sm 
+            <%= category.item_types.empty? ? " categoryDelete" : "" %>" 
+            data-id="<%= category.id %>" 
+            <%= raw category.item_types.empty? ? "" : " disabled='disable'" %>
+            >削除</span>
+          </td> 
+          <td class="btn-in-table">
+            <% disabled_class = category.item_types.empty? ? "disabled" : "" %>
+            <%= link_to '詳細', item_types_path(:category_id => category.id), class: "btn btn-info btn-sm " + disabled_class, disabled: category.item_types.empty? ? true : false %>
           </td>
         </tr>
       <% end %>
+
+
     </tbody>
+
   </table>
+
 </div>
+
+<script>
+  $(".categoryName").blur(function(event){
+
+    var id = $(this).data("id");
+    var name = $(this).text();
+
+      $.ajax({
+          url: '/categories/' + id,
+          type: 'PATCH',
+          data: {
+            category: {
+              id: id,
+              name: name
+              }
+          }
+        }).done(function(data, status, xhr) {
+          if(data.status == "ok"){
+            $("#" + id).addClass("info");
+          }
+        }).fail(function(xhr, status, error) {
+            console.log('更新されませんでした');
+        });
+  });
+
+  $('.categoryDelete').on('click',function(){
+     var id = $(this).data("id");
+
+      $.ajax({
+          url: '/categories/' + id,
+          type: 'delete'
+        }).done(function(data, status, xhr) {
+          if(data.status == "ok"){
+            $("#" + id).fadeOut(1000);
+          }
+        }).fail(function(xhr, status, error) {
+            console.log('削除されませんでした');
+            // alert("紐付いているアイテムタイプがあるため削除できません。")
+        });
+
+  });
+
+  $('.disabled').click(function(e){
+     e.preventDefault();
+  })
+
+</script>
+

@@ -1,0 +1,51 @@
+<h1>test</h1>
+
+<%
+  data = [
+    {
+      time: "10;00", dates:  [
+        "◎", "◎", "◎", "◎", "◎", "◎", "◎"
+      ]
+    },
+    {
+      time: "10:30", dates: [
+        "◎", "◎", "◎", "◎", "◎", "◎", "◎"
+      ]
+    },
+    {
+      time: "11:00", dates: [
+        "◎", "◎", "◎", "◎", "◎", "◎", "◎"
+      ]
+    },
+    {
+      time: "11:30", dates: [
+        "◎", "◎", "◎", "◎", "◎", "◎", "◎"
+      ]
+    }
+  ]
+%>
+<style>
+  table tr, table td {
+    padding: 10px;
+  }
+</style>
+<table class="table-bordered">
+  <tr>
+      <td></td>
+      <td>10/1</td>
+      <td>10/2</td>
+      <td>10/3</td>
+      <td>10/4</td>
+      <td>10/5</td>
+      <td>10/6</td>
+      <td>10/7</td>
+  </tr>
+  <% data.each do |time| %>
+    <tr>
+      <td><%= time[:time] %></td>
+      <% time[:dates].each do |date| %>
+        <td><%= date %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

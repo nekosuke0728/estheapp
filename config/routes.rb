@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'home#top'
 
+  get '/test', to: 'home#test'
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',    
@@ -20,6 +22,19 @@ Rails.application.routes.draw do
     get :staffs
     get :staff_show
   end
+  
+  # namespace :staff do 
+  #   authenticate :staff do 
+  #     resources :products
+  #   end
+  # end
+
+  # namespace :user do 
+  #   resources :products , only: [:index]    
+  #   authenticate :user do 
+  #     resources :products, only: [:create]    
+  #   end
+  # end
 
   resources :user_infos, except:[:index, :destroy]
   resources :esthe_menus
@@ -31,7 +46,7 @@ Rails.application.routes.draw do
   resources :payments
   resources :cart_products
   resources :products
-  resources :categories
+  resources :categories, except:[:show, :new, :edit]
   resources :brands
   resources :carts
   resources :reservations
