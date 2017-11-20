@@ -22,7 +22,26 @@ Rails.application.routes.draw do
     get :staffs
     get :staff_show
   end
-  
+
+  resources :user_infos, except:[:index, :destroy]
+  resources :esthe_menus
+  resources :news
+  resources :news_types
+  resources :stocks
+  resources :order_products
+  resources :orders, except:[:edit, :update, :destroy]
+  resources :payments
+  resources :cart_products
+  resources :products
+  # resources :categories, except:[:show, :new, :edit]
+  resources :brands
+  resources :carts
+  resources :reservations
+  resources :skin_trouble_types
+  resources :item_types
+
+# ------------------------------------------------------
+
   # namespace :staff do 
   #   authenticate :staff do 
   #     resources :products
@@ -36,21 +55,14 @@ Rails.application.routes.draw do
   #   end
   # end
 
-  resources :user_infos, except:[:index, :destroy]
-  resources :esthe_menus
-  resources :news
-  resources :news_types
-  resources :stocks
-  resources :order_products
-  resources :orders, except:[:edit, :update, :destroy]
-  resources :payments
-  resources :cart_products
-  resources :products
-  resources :categories, except:[:show, :new, :edit]
-  resources :brands
-  resources :carts
-  resources :reservations
-  resources :skin_trouble_types
-  resources :item_types
-  
+# ------------------------------------------------------
+
+namespace :staff do
+  authenticated :staff do
+    resources :categories, except:[:show, :new, :edit]
+  end
+end
+
+
+
 end

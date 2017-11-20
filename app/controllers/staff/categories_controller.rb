@@ -1,5 +1,5 @@
-class CategoriesController < ApplicationController
-  before_action :authenticate_staff!
+class Staff::CategoriesController < ApplicationController
+  # before_action :authenticate_staff!
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
